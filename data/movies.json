@@ -1,12 +1,1 @@
-[
-    {
-        "name": "titanic",
-        "year": "1997",
-        "id": "1"
-    },
-    {
-        "name": "toy story",
-        "year": "1997",
-        "id": "2"
-    }
-]
+[{"name":"titanic","year":"1997","id":"1"},{"name":"toy story","year":"1997","id":"2"},{"name":"toy story 2","year":"203","id":"0004"}]
