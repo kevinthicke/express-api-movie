@@ -19,17 +19,25 @@ const postMovie = (request, resolve) => {
 
 const likeMovie = (request, resolve) => {    
     const movieId = request.params.id;
-    console.log(movieId);
     const movie = movies.find( movie => movie.id == movieId);
     if (movie) {
         movie.like = 'true';
-        resolve.send(`Movie ${movie} has get a like`);
     }
-    else resolve.send(`Movie ${movie} do not exists in database`);
+    else resolve.send(`Movie with id ${movieId} do not exists in database`);
+}
+
+const dislikeMovie = (request, resolve) => {    
+    const movieId = request.params.id;
+    const movie = movies.find( movie => movie.id == movieId);
+    if (movie) {
+        movie.like = 'false';
+    }
+    else resolve.send(`Movie with id ${movieId} do not exists in database`);
 }
 
 module.exports = {
     getMovies,
     postMovie,
-    likeMovie
+    likeMovie,
+    dislikeMovie
 }
