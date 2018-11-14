@@ -1,5 +1,6 @@
 const movies = require('./../../data/movies.json');
 const files = require('./../../utils/files.js');
+const asignMovieLike = require('./../../utils/asignMovieLike.js');
 
 const getMovies = (request, resolve) => {
     resolve.send(movies);
@@ -17,23 +18,10 @@ const postMovie = (request, resolve) => {
     }
 }
 
-const likeMovie = (request, resolve) => {    
-    const movieId = request.params.id;
-    const movie = movies.find( movie => movie.id == movieId);
-    if (movie) {
-        movie.like = 'true';
-    }
-    else resolve.send(`Movie with id ${movieId} do not exists in database`);
-}
+const likeMovie = (request, resolve) => asignMovieLike(request, resolve, true);
 
-const dislikeMovie = (request, resolve) => {    
-    const movieId = request.params.id;
-    const movie = movies.find( movie => movie.id == movieId);
-    if (movie) {
-        movie.like = 'false';
-    }
-    else resolve.send(`Movie with id ${movieId} do not exists in database`);
-}
+const dislikeMovie = (request, resolve) => asignMovieLike(request, resolve, false);
+
 
 module.exports = {
     getMovies,
