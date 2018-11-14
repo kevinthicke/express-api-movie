@@ -1,7 +1,6 @@
 const fs = require('fs');
 const pathName = './data/movies.json';
 
-
 const saveFile = (content) => {
     const contentJSON = JSON.stringify(content);
         fs.writeFileSync(pathName, contentJSON, err => {
