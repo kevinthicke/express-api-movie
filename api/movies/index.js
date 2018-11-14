@@ -4,9 +4,9 @@ const router = express.Router();
 const movieController = require('./../../controllers/movies/index.js');
 
 router.get('/', (request, resolve) => movieController.getMovies(request, resolve));
-router.post('/', (request, resolve) => movieController.postMovie(request, resolve));
-router.post('/like/:id', (request, resolve) => movieController.likeMovie(request, resolve));
-router.delete('/dislike/:id', (request, resolve) => movieController.dislikeMovie(request, resolve));
+router.post('/', movieController.postMovie);
+router.post('/like/:id', movieController.likeMovie);
+router.delete('/dislike/:id', movieController.dislikeMovie);
 
 module.exports = router;
 
