@@ -8,7 +8,7 @@ const getMovies = (request, resolve) => {
 
 const postMovie = (request, resolve) => {
     const newMovie = request.body;
-    const movieAlredyExists = movies.find( movie => movie.name == newMovie.name);
+    const movieAlredyExists = movies.find(movie => movie.name == newMovie.name);
     if(movieAlredyExists){
         resolve.send(`Film < ${newMovie.name} > alredy exists in the database`)
     } else {
@@ -22,10 +22,19 @@ const likeMovie = (request, resolve) => asignMovieLike(request, resolve, true);
 
 const dislikeMovie = (request, resolve) => asignMovieLike(request, resolve, false);
 
+const getLikeMovies = (request, resolve) => {
+    let likeMovies = [];
+    movies.forEach(movie => {
+        if (movie.like === true) likeMovies.push(movie);
+    });
+    console.log(likeMovies);
+    resolve.send(likeMovies);
+}
 
 module.exports = {
     getMovies,
     postMovie,
     likeMovie,
-    dislikeMovie
+    dislikeMovie,
+    getLikeMovies
 }
