@@ -27,7 +27,6 @@ const getLikeMovies = (request, resolve) => {
     movies.forEach(movie => {
         if (movie.like === true) likeMovies.push(movie);
     });
-    console.log(likeMovies);
     resolve.send(likeMovies);
 }
 
