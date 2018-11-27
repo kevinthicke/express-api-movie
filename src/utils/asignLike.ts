@@ -1,8 +1,7 @@
 const movies = require('./../data/movies.json');
-const files = require('./files.js');
+const files = require('./fileUtils.ts');
 
-
-const asignMovieLike = (request, resolve, bool) => {
+const asignLike = (request, resolve, bool:boolean) => {
     const movieId = request.params.id;
     const movie = movies.find( movie => movie.id == movieId);
     if (movie) {
@@ -13,4 +12,6 @@ const asignMovieLike = (request, resolve, bool) => {
     else resolve.send(`Movie with id ${movieId} do not exists in database`);
 }
 
-module.exports = asignMovieLike;
+export = {
+    asignLike
+}

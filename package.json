@@ -1,18 +1,22 @@
 {
-  "name": "express-movies-tutorial",
+  "name": "api-movies",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.js"
+    "dev": "ts-node server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.10",
     "express": "^4.16.4",
-    "nodemon": "^1.18.6"
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
   }
 }
